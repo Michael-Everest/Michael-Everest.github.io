@@ -2,29 +2,38 @@
 <html>
   <head>
     <title>My Website</title>
+    <script>
+      function getTime() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/');
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            document.getElementById('time').innerHTML = xhr.responseText;
+          }
+        };
+        xhr.send();
+      }
+    </script>
   </head>
-  <body>
+  <body onload="getTime()">
     <header>
       <nav>
         <ul>
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main>
+      <section id="home">
+        <h1>Welcome to My Website</h1>
+        <p>The current date and time is:</p>
+        <p id="time"></p>
+      </section>
       <section id="about">
         <h1>About Me</h1>
         <p>I am a web developer and I love creating websites.</p>
-      </section>
-      <section id="services">
-        <h1>My Services</h1>
-        <ul>
-          <li>Web Design</li>
-          <li>Web Development</li>
-          <li>Search Engine Optimization</li>
-        </ul>
       </section>
       <section id="contact">
         <h1>Contact Me</h1>
