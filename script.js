@@ -144,7 +144,10 @@ if (currentPage === "index.html") {
   products = businessProducts;
 } else if (currentPage === "maker.html") {
   products = makerProducts;
-}// Define the options for the Intersection Observer
+} else{
+  products = [...foodProducts, ...techProducts, ...businessProducts, ...makerProducts];
+}
+// Define the options for the Intersection Observer
 const options = {
   root: null,
   rootMargin: '0px',
