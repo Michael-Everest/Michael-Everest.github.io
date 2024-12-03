@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="dorm-name">Place Holder</title>
+    <link rel="stylesheet" href="/styles/dormWashersDryers.css">
+</head>
+<body>
+    <!-- Include the navbar -->
+    <div id="navbar-container"></div>
+    <script src="/navbar.js"></script>
+
+    <h1 class="dorm-name">Place Holder</h1>
+    <div id="washers" class="machine">
+        <h2>Washers</h2>
+
+        <button class="washer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/washer_closed.png" alt="Washer Image">
+        </a>
+
+        <button class="washer-button"></button>
+        <a href="statuspage_washer.html">
+            <img status="open" src="photos/washer_open.png" alt="Washer Image">
+        </a>
+
+        <button class="washer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/washer_closed.png" alt="Washer Image">
+        </a>
+
+        <button class="washer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/washer_closed.png" alt="Washer Image">
+        </a>
+    </div>
+
+    <div id="dryers" class="machine">
+        <h2>Dryers</h2>
+
+        <button class="dryer-button"></button>
+        <a href="statuspage_dryer.html">
+            <img status="open" src="photos/dryer_open.png" alt="Dryer Image">
+        </a>
+
+        <button class="dryer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/dryer_closed.png" alt="Dryer Image">
+        </a>
+
+        <button class="dryer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/dryer_closed.png" alt="Dryer Image">
+        </a>
+
+        <button class="dryer-button"></button>
+        <a href="machine_unavailable.html">
+            <img status="closed" src="photos/dryer_closed.png" alt="Dryer Image">
+        </a>
+    </div>
+    <script>
+        const dormName = localStorage.getItem('dorm-name');
+
+        if (dormName) {
+            // Select all elements with the class 'dorm-name' and update their text content
+            const dormNameElements = document.getElementsByClassName('dorm-name');
+            Array.from(dormNameElements).forEach(element => {
+                element.textContent = dormName;
+            });
+        }
+        // if user tries to hit unavailable washer or dryer show popup
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const status = event.target.getAttribute('status'); // Get the status attribute
+                if (status === 'closed') {
+                    alert('Unavailable'); // Show popup
+                }
+            });
+        });
+    </script>
+</body>
+</html>

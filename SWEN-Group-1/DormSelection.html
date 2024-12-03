@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/homepage.css">
+    <title>Dorm Selection</title>
+    <style>
+        body {
+          background-image: url("photos/Residence_Hall_Image.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+</head>
+<body>
+    <!-- Include the navbar -->
+    <div id="navbar-container"></div>
+    <script src="/navbar.js"></script>
+
+    <section id="main" class="hidden">
+    <h1>Dorms</h1>
+        <div id="dorm-links">
+            <button class="dorm-name">Carlton Gibson Hall</button>
+            <button class="dorm-name">Colby Hall</button>
+            <button class="dorm-name">Frances Baker Hall</button>
+            <button class="dorm-name">Fredericka Douglass Spraque Perry Hall</button>
+            <button class="dorm-name">Helen Fish Hall</button>
+            <button class="dorm-name">Kate Gleason Hall</button>
+            <button class="dorm-name">Mark Ellingson Hall</button>
+            <button class="dorm-name">Peter Peterson Hall</button>
+            <button class="dorm-name">Residence Hall A</button>
+            <button class="dorm-name">Residence Hall B</button>
+            <button class="dorm-name">Residence Hall C</button>
+            <button class="dorm-name">Residence Hall D</button>
+            <button class="dorm-name">Sol Heumann Hall</button>
+        </div>
+        <br><br>
+        <button id="logout">Logout</button>
+    </section>
+    <script>
+        const dorm_buttons = document.getElementsByClassName('dorm-name');
+        const logout = document.getElementById('logout');
+
+
+        Array.from(dorm_buttons).forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dormNameValue = e.target.textContent;
+                localStorage.setItem('dorm-name', dormNameValue);
+                window.location.href = "WashersDryers.html";
+            });
+        });
+
+        logout.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = "login.html";
+        });
+
+    </script>
+</body>
+</html>
